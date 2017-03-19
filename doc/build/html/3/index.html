@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>三.CSS书写规范 &#8212; 前端规范文档汇总 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="前端规范文档汇总 1.0.0 documentation" href="../index.html" />
+    <link rel="next" title="四.Javascript书写规范" href="../4/index.html" />
+    <link rel="prev" title="二.HTML书写规范" href="../2/index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../4/index.html" title="四.Javascript书写规范"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../2/index.html" title="二.HTML书写规范"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">前端规范文档汇总 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="css">
+<h1>三.CSS书写规范<a class="headerlink" href="#css" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>1，css样式新建或者修改尽量遵循以下原则.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>a,书写代码前，考虑并提高样式重复使用率；</p>
+<p>b,根据新建样式的使用范围分为三级：公共样式（全站级），模块样式（产品级），页面样式（页面级）</p>
+<p>c,尽量通过继承和层叠重用已有样式。</p>
+<p>d,不要轻易改动公共样式css，改动后，要经过全面测试。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>2，css属性显示顺序.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>a,显示属性</p>
+<p>b,元素位置</p>
+<p>c,元素属性</p>
+<p>d,元素内容属性</p>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>3，css书写顺序.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="p">{</span>
+<span class="o">/*</span> <span class="n">显示属性</span> <span class="o">*/</span>
+        <span class="n">display</span> <span class="o">||</span> <span class="n">visibility</span>
+        <span class="nb">list</span><span class="o">-</span><span class="n">style</span>
+        <span class="n">position</span> <span class="n">top</span> <span class="o">||</span> <span class="n">right</span> <span class="o">||</span> <span class="n">bottom</span> <span class="o">||</span> <span class="n">left</span>
+        <span class="n">z</span><span class="o">-</span><span class="n">index</span>
+        <span class="n">clear</span>
+        <span class="nb">float</span>
+<span class="o">/*</span> <span class="n">自身属性</span> <span class="o">*/</span>
+        <span class="n">width</span> <span class="nb">max</span><span class="o">-</span><span class="n">width</span> <span class="o">||</span> <span class="nb">min</span><span class="o">-</span><span class="n">width</span>
+        <span class="n">height</span> <span class="nb">max</span><span class="o">-</span><span class="n">height</span> <span class="o">||</span> <span class="nb">min</span><span class="o">-</span><span class="n">height</span>
+        <span class="n">overflow</span> <span class="o">||</span> <span class="n">clip</span>
+        <span class="n">margin</span>
+        <span class="n">padding</span>
+        <span class="n">outline</span>
+        <span class="n">border</span>
+        <span class="n">background</span>
+<span class="o">/*</span> <span class="n">文本属性</span> <span class="o">*/</span>
+        <span class="n">color</span>
+        <span class="n">font</span>
+        <span class="n">text</span><span class="o">-</span><span class="n">overflow</span>
+        <span class="n">text</span><span class="o">-</span><span class="n">align</span>
+        <span class="n">text</span><span class="o">-</span><span class="n">indent</span>
+        <span class="n">line</span><span class="o">-</span><span class="n">height</span>
+        <span class="n">white</span><span class="o">-</span><span class="n">space</span>
+        <span class="n">vertical</span><span class="o">-</span><span class="n">align</span>
+        <span class="n">cursor</span>
+        <span class="n">content</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>4，兼容多个浏览器时，将标准属性写在底部.<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">15</span><span class="n">px</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Firefox</span> <span class="o">*/</span>
+
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">15</span><span class="n">px</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Safari和Chrome</span> <span class="o">*/</span>
+
+<span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">15</span><span class="n">px</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Opera</span> <span class="mf">10.5</span><span class="o">+</span><span class="p">,</span> <span class="n">以及使用了IE</span><span class="o">-</span><span class="n">CSS3的IE浏览器</span> <span class="o">*//</span><span class="n">标准属性</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="idheader-header">
+<h2>5，浏览器将检查整个文档中的所有链接和每个链接的父元素，并遍历文档树去查找ID为header的祖先元素，如果找不到header将追溯到文档的根节点.<a class="headerlink" href="#idheader-header" title="Permalink to this headline">¶</a></h2>
+<p>解决方法如下:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>避免使用通配规则和相邻兄弟选择符、子选择符,、后代选择符、属性选择符等选择器
+
+不要限定id选择符，如div#header（提权的除外）
+
+不要限定类选择器，如ul.recommend（提权的除外）
+
+不要使用 ul li a 这样长的选择符
+
+避免使用标签子选择符，如#header &gt; li &gt; a
+</pre></div>
+</div>
+</div>
+<div class="section" id="z-index">
+<h2>6，使用z-index属性.<a class="headerlink" href="#z-index" title="Permalink to this headline">¶</a></h2>
+<p>使用z-index的值尽量不要超过150（通用组的除外），页面中的元素内容的z-index不能超过10（提示框等模块除外但维持在150以下），不允许直接使用（999~9999）之间的大值。</p>
+</div>
+<div class="section" id="css-hack">
+<h2>7，尽量避免使用CSS Hack.<a class="headerlink" href="#css-hack" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id5">
+<h2>8，避免使用低效的选择器.<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id6">
+<h2>9，减少使用影响性能的属性.<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">:</span><span class="n">absolute</span><span class="p">;</span>
+
+<span class="nb">float</span><span class="p">:</span><span class="n">left</span><span class="p">;</span><span class="o">//</span><span class="n">如这些定位或浮动属性</span>
+</pre></div>
+</div>
+<p>减少在css中使用滤镜表达式和图片repeat，尤其在body当中，渲染性能极差，如果需要用repeat的话，图片的宽和高不能少于8px。</p>
+</div>
+<div class="section" id="id">
+<h2>10，合理的避免使用id.<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>一般情况下id不应该被应用于样式；
+
+id的样式不能被复用并且每个页面中你只能使用一次id；
+
+使用id唯一有效的是确定网页或整个站点中的位置；
+
+尽管如此，你应该始终考虑使用class，而不是id，除非只使用一次；
+
+另一个反对使用id的观点是含有id选择器权重很高。
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>11，css选择器中避免标签名.<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>当构建选择器时应该选择使用清晰，准确和有语义的class（类）名；</p>
+<p>不要使用标签选择器；</p>
+<p>如果你只关心你的class（类）名，而不是你的代码元素，这样会更容易维护。</p>
+<p>从分离的角度考虑，在表现层中不应该分配html标记/语义。</p>
+<p>不推荐:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span><span class="n">css代码</span><span class="o">*/</span>
+<span class="n">div</span><span class="o">.</span><span class="n">content</span><span class="o">&gt;</span><span class="n">h2</span><span class="o">.</span><span class="n">title</span><span class="p">{</span>
+                                <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="mi">2</span><span class="n">em</span><span class="p">;</span>
+                                <span class="p">}</span>
+</pre></div>
+</div>
+<p>推荐:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span><span class="n">css代码</span><span class="o">*/</span>
+<span class="o">.</span><span class="n">content</span><span class="o">&gt;.</span><span class="n">title</span><span class="p">{</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="mi">2</span><span class="n">em</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>12,0和单位.<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>省略“0”值后面的单位，不要在0值后面使用单位，除非有值；</p>
+<p>不推荐:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">padding</span><span class="p">:</span><span class="mi">0</span><span class="n">px</span><span class="p">;</span>
+
+<span class="n">margin</span><span class="p">:</span><span class="mi">0</span><span class="n">em</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>推荐:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">padding</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="n">margin</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>13,十六进制表示法.<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>在可能的情况下，使用3个字符的十六进制表示法。颜色值允许这样表示，3个字符的十六进制表示法更简短；使用小写的十六进制数字。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">:</span><span class="c1">#FF33AA;//不推荐</span>
+
+<span class="n">color</span><span class="p">:</span><span class="c1">#f3a;//推荐</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="idclass">
+<h2>14，id和class（类）名的分隔符.<a class="headerlink" href="#idclass" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>使用连字符（中划线）分隔id和class（类）名中的单词，为了增强可理解性，在选择器中不要使用除了连字符（中划线）以外的任何字符（包括没有）来连接单词和缩写，最好的坚持是使用连字符作为分隔符。</div></blockquote>
+</div>
+<div class="section" id="id10">
+<h2>15，声明结束.<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>为了保证一致性和可扩展性，每个声明应该用分号结束，每个声明换行。</div></blockquote>
+<p>eg:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">test</span><span class="p">{</span>
+        <span class="n">display</span><span class="p">:</span><span class="n">block</span><span class="p">;</span>
+        <span class="n">height</span><span class="p">:</span><span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">三.CSS书写规范</a><ul>
+<li><a class="reference internal" href="#id1">1，css样式新建或者修改尽量遵循以下原则.</a></li>
+<li><a class="reference internal" href="#id2">2，css属性显示顺序.</a></li>
+<li><a class="reference internal" href="#id3">3，css书写顺序.</a></li>
+<li><a class="reference internal" href="#id4">4，兼容多个浏览器时，将标准属性写在底部.</a></li>
+<li><a class="reference internal" href="#idheader-header">5，浏览器将检查整个文档中的所有链接和每个链接的父元素，并遍历文档树去查找ID为header的祖先元素，如果找不到header将追溯到文档的根节点.</a></li>
+<li><a class="reference internal" href="#z-index">6，使用z-index属性.</a></li>
+<li><a class="reference internal" href="#css-hack">7，尽量避免使用CSS Hack.</a></li>
+<li><a class="reference internal" href="#id5">8，避免使用低效的选择器.</a></li>
+<li><a class="reference internal" href="#id6">9，减少使用影响性能的属性.</a></li>
+<li><a class="reference internal" href="#id">10，合理的避免使用id.</a></li>
+<li><a class="reference internal" href="#id7">11，css选择器中避免标签名.</a></li>
+<li><a class="reference internal" href="#id8">12,0和单位.</a></li>
+<li><a class="reference internal" href="#id9">13,十六进制表示法.</a></li>
+<li><a class="reference internal" href="#idclass">14，id和class（类）名的分隔符.</a></li>
+<li><a class="reference internal" href="#id10">15，声明结束.</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../2/index.html"
+                        title="previous chapter">二.HTML书写规范</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../4/index.html"
+                        title="next chapter">四.Javascript书写规范</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/3/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../4/index.html" title="四.Javascript书写规范"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../2/index.html" title="二.HTML书写规范"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">前端规范文档汇总 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, xyujie.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+    </div>
+  </body>
+</html>

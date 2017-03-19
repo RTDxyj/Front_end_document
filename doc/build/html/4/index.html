@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>四.Javascript书写规范 &#8212; 前端规范文档汇总 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="前端规范文档汇总 1.0.0 documentation" href="../index.html" />
+    <link rel="next" title="五.图片规范" href="../5/index.html" />
+    <link rel="prev" title="三.CSS书写规范" href="../3/index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../5/index.html" title="五.图片规范"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../3/index.html" title="三.CSS书写规范"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">前端规范文档汇总 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="javascript">
+<h1>四.Javascript书写规范<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>1，      命名规范.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>常量名
+        全部大写并单词间用下划线分隔
+        如：CSS_BTN_CLOSE、TXT_LOADING
+
+对象的属性或方法名
+        小驼峰式（little camel-case）
+        如：init、bindEvent、updatePosition
+        示例：Dialog.prototype = {
+                                init: function () {},
+                                bindEvent: function () {},
+                                updatePosition: function () {}
+                                …
+                                };
+类名（构造器）
+        --&gt;小驼峰式但首字母大写
+        --&gt;如：Current、DefaultConfig
+函数名
+        --&gt;小驼峰式
+        --&gt;如：current()、defaultConfig()
+变量名
+        --&gt;小驼峰式，原生js变量要求是纯英文字母，首字母须小写
+--&gt;如：current、defaultConfig
+要求变量名集中声明，避免全局变量
+私有变量名
+        --&gt;小驼峰式但需要用_开头
+        --&gt;如：_current、_defaultConfig
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>2，避免额外的逗号.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,];</span><span class="o">//</span><span class="n">末尾多写了个逗号</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,};</span><span class="o">//</span><span class="n">末尾多写了一个逗号</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>3，使用严格的条件判断符.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>用===代替==，用！==代替！=，避免掉入==造成的陷阱，在条件判断时，这样的一些值表示为false。
+
+null
+
+undefined与null相等
+
+字符串&#39;&#39;
+
+数字0
+
+NaN
+</pre></div>
+</div>
+<p>“===”表示类型和值完全一样；</p>
+<p>“==”表示值一样，类型可不一样；</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>(function () {
+        var undefined;
+        undefined == null; // true
+        1 == true; //true
+        2 == true; // false
+        0 == false; // true
+        0 == &#39;&#39;; // true
+        NaN == NaN;// false
+        [] == false; // true
+        [] == ![]; // true
+})();
+</pre></div>
+</div>
+<p>对于不同类型的==判断，有这样一些规则，顺序自上而下:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>undefined与null相等
+
+一个是number一个是string时，会尝试将string转换为number
+
+尝试将boolean转换为number
+
+0或1
+
+尝试将Object转换成number或string
+</pre></div>
+</div>
+</div>
+<div class="section" id="new">
+<h2>4，下面类型的对象不建议用new构造.<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>new Number
+
+new String
+
+new Boolean
+
+new Object //用{}代替
+
+new Array //用[]代替
+
+引用对象成员用obj.name代替obj[“name”]，除非属性名是变量。
+</pre></div>
+</div>
+</div>
+<div class="section" id="numberstring">
+<h2>5，从number到string的转换.<a class="headerlink" href="#numberstring" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/**</span> <span class="n">推荐写法</span><span class="o">*/</span>
+        <span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="n">typeof</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="o">//</span><span class="s2">&quot;number&quot;</span>
+
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="o">//</span><span class="mi">1</span>
+
+        <span class="n">var</span> <span class="n">aa</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+        <span class="n">typeof</span><span class="p">(</span><span class="n">aa</span><span class="p">);</span> <span class="o">//</span><span class="s2">&quot;string&quot;</span>
+
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">aa</span><span class="p">);</span> <span class="o">//</span><span class="s1">&#39;1&#39;</span>
+
+<span class="o">/**</span> <span class="n">不推荐写法</span><span class="o">*/</span>
+
+        <span class="n">new</span> <span class="n">String</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="n">或a</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stringnumber-parseint">
+<h2>6，从string到number的转换，使用parseInt，必须显示指定第二个参数的进制.<a class="headerlink" href="#stringnumber-parseint" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/**</span> <span class="n">推荐写法</span><span class="o">*/</span>
+<span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">aa</span> <span class="o">=</span> <span class="n">parseInt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">typeof</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="o">//</span><span class="s2">&quot;string&quot;</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="o">//</span><span class="s1">&#39;1&#39;</span>
+<span class="n">typeof</span><span class="p">(</span><span class="n">aa</span><span class="p">);</span> <span class="o">//</span><span class="s2">&quot;number&quot;</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">aa</span><span class="p">);</span> <span class="o">//</span><span class="mi">1</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="floatinteger">
+<h2>7，从float到integer的转换.<a class="headerlink" href="#floatinteger" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/**</span> <span class="n">推荐写法</span><span class="o">*/</span>
+
+<span class="n">Math</span><span class="o">.</span><span class="n">floor</span><span class="o">/</span><span class="n">Math</span><span class="o">.</span><span class="n">round</span><span class="o">/</span><span class="n">Math</span><span class="o">.</span><span class="n">ceil</span>
+
+<span class="o">/*</span><span class="n">不推荐写法</span><span class="o">*/</span>
+
+<span class="n">parseInt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="join">
+<h2>8，字符串拼接应使用数组保存字符串片段，使用时调用join方法。避免使用+或者+=的方式拼接较长的字符串，每个字符串都会使用一个小的内存片段，过多的内存片段会影响性能.<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>/**推荐的拼接方式array的push、join*/
+
+        var str=[],
+
+                list=[&#39;测试A&#39;,&#39;测试B&#39;];
+
+        for (var i=0 , len=list.length; i &lt; len; i++) {
+
+                str.push( &#39;&lt;div&gt;&#39;+ list[i] + &#39;&lt;/div&gt;&#39;);
+        };
+
+        console.log(str.join(&#39;&#39;)); //&lt;div&gt;测试A&lt;/div&gt;&lt;div&gt;测试B&lt;/div&gt;
+
+/** 不推荐的拼接方式+=*/
+        var str = &#39;&#39;,
+                list=[&#39;测试A&#39;,&#39;测试B&#39;];
+        for (var i = 0, len = list.length; i&lt; len; i++) {
+                str+=&#39;&lt;div&gt;&#39; + list[i] + &#39;&lt;/div&gt;&#39;;
+        };
+        console.log(str); //&lt;div&gt;测试A&lt;/div&gt;&lt;div&gt;测试B&lt;/div&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="html-reflow">
+<h2>9，尽量避免使用存在兼容性及消耗资源的方法和属性，注重HTML分离，减少reflow，注重性能.<a class="headerlink" href="#html-reflow" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="iife-immediately-invoked-function-expression">
+<h2>10，全局命名空间污染与IIFE（Immediately-Invoked Function Expression）.<a class="headerlink" href="#iife-immediately-invoked-function-expression" title="Permalink to this headline">¶</a></h2>
+<p>总是将 代码包裹成一个IIFE，用以创建独立隔绝的定义域，这一举措可防止全局命名空间被污染。IIFE还可确保你的代码不会轻易被其它全局命名空间里的代码所修改（第三方库，window引用，被覆盖的未定义的关键字等等）</p>
+</div>
+<div class="section" id="id4">
+<h2>11，严格模式.<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>ECMAScript5严格模式可在整个脚本或独个方法内被激活，它对应不同的javascript语境会做更加严格的错误检查。严格模式也确保了javascript代码更加的健壮，运行的也更加快速。严格模式会阻止使用在未来很可能被引入的预留关键字。</p>
+<p>eg：在angularjs中单个独立的controller中使用严格模式:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>‘use strict’;
+
+Module.exports=sjcjController;
+
+sjcjController.$inject=[‘$scope’];
+
+function sjcjController($scope){
+
+/*js逻辑书写区域*/
+
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">四.Javascript书写规范</a><ul>
+<li><a class="reference internal" href="#id1">1，      命名规范.</a></li>
+<li><a class="reference internal" href="#id2">2，避免额外的逗号.</a></li>
+<li><a class="reference internal" href="#id3">3，使用严格的条件判断符.</a></li>
+<li><a class="reference internal" href="#new">4，下面类型的对象不建议用new构造.</a></li>
+<li><a class="reference internal" href="#numberstring">5，从number到string的转换.</a></li>
+<li><a class="reference internal" href="#stringnumber-parseint">6，从string到number的转换，使用parseInt，必须显示指定第二个参数的进制.</a></li>
+<li><a class="reference internal" href="#floatinteger">7，从float到integer的转换.</a></li>
+<li><a class="reference internal" href="#join">8，字符串拼接应使用数组保存字符串片段，使用时调用join方法。避免使用+或者+=的方式拼接较长的字符串，每个字符串都会使用一个小的内存片段，过多的内存片段会影响性能.</a></li>
+<li><a class="reference internal" href="#html-reflow">9，尽量避免使用存在兼容性及消耗资源的方法和属性，注重HTML分离，减少reflow，注重性能.</a></li>
+<li><a class="reference internal" href="#iife-immediately-invoked-function-expression">10，全局命名空间污染与IIFE（Immediately-Invoked Function Expression）.</a></li>
+<li><a class="reference internal" href="#id4">11，严格模式.</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../3/index.html"
+                        title="previous chapter">三.CSS书写规范</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../5/index.html"
+                        title="next chapter">五.图片规范</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/4/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../5/index.html" title="五.图片规范"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../3/index.html" title="三.CSS书写规范"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">前端规范文档汇总 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, xyujie.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+    </div>
+  </body>
+</html>
